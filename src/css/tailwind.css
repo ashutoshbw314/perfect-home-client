@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+/* custom css start */
+body.loading {
+  visibility: hidden;
+}
+
+/* custom css end */
+
+@tailwind utilities;
+
+.w-screen-le-72 {
+  width: calc(100vw - 72px);
+}
+
+.h-screen-le-44 {
+  height: calc(100vh - 44px);
+}
+
+.h-screen-le-40 {
+  height: calc(100vh - 40px);
+}
+
+.h-screen-le-108 {
+  height: calc(100vh - 108px);
+}
+
+.h-screen-le-104 {
+  height: calc(100vh - 104px);
+}
+
+@layer base {
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply block w-full mt-1 border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+  }
+
+  [type='checkbox'],
+  [type='radio'] {
+    @apply text-indigo-800 border-gray-300 rounded focus:ring-indigo-800;
+  }
+}
