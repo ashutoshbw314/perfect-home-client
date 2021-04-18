@@ -20,7 +20,7 @@ function NavBar({wide}) {
   }
 
   return (
-    <div className='sticky top-0 z-50 bg-brand-light'>
+    <div className='sticky top-0 z-50 bg-white'>
       <header className={`flex flex-wrap items-center ${wide ? '' : 'max-w-5xl mx-auto'} px-6 lg:px-6 lg:py-0`}>
         <div className='flex items-center justify-center flex-1 lg:my-0 lg:justify-start'>
           <Link to='/'>

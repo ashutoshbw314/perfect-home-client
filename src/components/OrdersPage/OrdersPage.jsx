@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import OrdersSection from './OrderSection';
 import MyOrdersSection from './MyOrdersSection';
+import ReviewSection from './ReviewSection';
 
 function OrdersPage() {
   const tabs = ["Order", "Orders list", "Review"];
@@ -49,7 +50,7 @@ function OrdersPage() {
         <div className='w-full h-full lg:col-span-9'>
           { tab == tabs[0] && <OrdersSection setTab={setTab} tabs={tabs} order={JSON.parse(localStorage.getItem('service'))} /> }
           { tab == tabs[1] && <MyOrdersSection />}
-          { tab == tabs[2] && <h1>This is Make admin</h1> }
+          { tab == tabs[2] && <ReviewSection />}
         </div>
       </div>
     </div>

@@ -9,6 +9,10 @@ export const get3Services = () => {
   return fetch(BASE_API_URL + `/3-services`).then(res => res.json())
 };
 
+export const get3RandomReviews = () => {
+  return fetch(BASE_API_URL + `/3-random-reviews`).then(res => res.json())
+};
+
 export const getOrdersByEmail = (email) => {
   return fetch(BASE_API_URL + `/orders?email=${encodeURIComponent(email)}`).then(res => res.json())
 };
@@ -40,6 +44,17 @@ export const addService = (serviceData) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(serviceData)
+  })  
+};
+
+export const addReview = (data) => {
+  return fetch(BASE_API_URL + '/review', {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
   })  
 };
 

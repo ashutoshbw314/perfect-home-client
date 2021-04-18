@@ -18,6 +18,7 @@
     "react-dom": "^17.0.0",
     "react-hook-form": "^6.15.5",
     "react-parallax-tilt": "^1.5.4",
+    "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^5.2.0",
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^7.0.3",

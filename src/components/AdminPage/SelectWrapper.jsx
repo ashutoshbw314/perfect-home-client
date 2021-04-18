@@ -39,7 +39,7 @@ const SelectWrapper = ({status, id}) => {
         pauseOnFocusLoss
         draggable
       />
-      <select defaultValue={status} onChange={handleChange} name='status' className={`font-bold ${statusStyle}`}>
+      <select style={{minWidth: '115px'}} defaultValue={status} onChange={handleChange} name='status' className={`font-bold ${statusStyle}`}>
         <option value="pending" className='text-red-500'>Pending</option>
         <option value="ongoing" className='text-yellow-500'>Ongoing</option>
         <option value="done" className='text-green-700'>Done</option>
