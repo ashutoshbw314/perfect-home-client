@@ -21,6 +21,10 @@ export const getAllOrders = () => {
   return fetch(BASE_API_URL + `/orders`).then(res => res.json())
 };
 
+export const getAllServices = () => {
+  return fetch(BASE_API_URL + `/services`).then(res => res.json())
+};
+
 export const changeOrderStatus = (id, status) => {
   return fetch(BASE_API_URL + `/orders/${id}?status=${status}`, {
     method: "PUT",
@@ -69,23 +73,8 @@ export const addReview = (data) => {
   })  
 };
 
-export const getOrders = (uid) => {
-  return fetch(BASE_API_URL + `/orders/${uid}`).then(res => res.json())
-};
-
-export const placeOrder = (order) => {
-  return fetch(BASE_API_URL + '/orders', {
-    method: "POST",
-    headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(order)
-  })  
-};
-
-export const deleteProduct = (id) => {
-  return fetch(`${BASE_API_URL}/products/${id}`, {
+export const deleteService = (id) => {
+  return fetch(`${BASE_API_URL}/services/${id}`, {
     method: "DELETE",
     headers: {
       "Accept": "application/json",

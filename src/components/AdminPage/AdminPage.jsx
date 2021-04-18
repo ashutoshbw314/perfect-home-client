@@ -4,6 +4,7 @@ import NavBar from '../shared-components/NavBar/NavBar';
 import  {useAuth} from '../../hooks/useAuth';
 import AddServiceSection from './AddServiceSection';
 import AddAdminSection from './AddAdminSection';
+import ManageServicesSection from './ManageServicesSection';
 import OrdersListSection from './OrdersListSection';
 
 function AdminPage() {
@@ -50,7 +51,7 @@ function AdminPage() {
           { tab == tabs[0] && <OrdersListSection /> }
           { tab == tabs[1] && <AddServiceSection />}
           { tab == tabs[2] && <AddAdminSection /> }
-          { tab == tabs[3] && <h1>Mangage Services</h1> }
+          { tab == tabs[3] && <ManageServicesSection /> }
         </div>
       </div>
     </div>
