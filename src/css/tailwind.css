@@ -9,8 +9,8 @@ body.loading {
 
 @tailwind utilities;
 
-.w-screen-le-72 {
-  width: calc(100vw - 72px);
+.w-screen-le-88 {
+  width: calc(100vw - 88px);
 }
 
 .h-screen-le-44 {
@@ -21,12 +21,20 @@ body.loading {
   height: calc(100vh - 40px);
 }
 
-.h-screen-le-108 {
-  height: calc(100vh - 108px);
+.h-screen-le-50 {
+  height: calc(100vh - 50px);
 }
 
 .h-screen-le-104 {
   height: calc(100vh - 104px);
+}
+
+.min-h-screen--44 {
+  min-height: calc(100vh - 44px);
+}
+
+.top-44px {
+  top: 44px;
 }
 
 @layer base {

@@ -1,7 +1,11 @@
 import React from "react";
 
 function OrderCard({order}) {
-  console.log(order)
+  const status = order.status;
+  const statusStyle = status == 'pending'  ? 'bg-red-400' :
+                      status == 'ongoing' ? 'bg-yellow-500':
+                                             'bg-green-500';
+
   const formatDate = date => {
     const day = date.getDate();
     const year = date.getFullYear();
@@ -9,49 +13,22 @@ function OrderCard({order}) {
     return `${day} ${monthName} ${year}`; 
   }
 
-  const randomInteger = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  const getDeliveryDate = startDate => {
-    const oneDay = 1000 * 60 * 60 * 24;
-    const delay = randomInteger(oneDay * 3, oneDay * 5);
-    return new Date(startDate.getTime() + delay);
-  }
-
   return (
-    <div className='p-4 my-2 border-2 border-indigo-400 rounded-lg shadow-md hover:border-indigo-800 lg:p-2 grid grid-cols-1 lg:grid-cols-4 hover:scale-105 transform transition-all'>
-      <div className='mb-3 grid grid-cols-2 lg:mb-0'>
-        <img className='object-cover w-full h-40 shadow-md rounded-md' src={order.imageURL} alt={order.name} />
-        <div className='flex flex-col justify-between px-3 py-6'>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-700">{order.name}</h3>
-            <h4 className="text-gray-600 ">by <i>{order.artistName}</i></h4>
-          </div>
-          <div className='flex justify-between w-full text-gray-600'>
-            <p>Qty 1</p>
-            <p className='font-bold text-gray-800'>${order.price}</p>
-          </div>
+    <div className='flex flex-col items-center p-1 overflow-hidden rounded-lg shadow-lg border-opacity-90 hover:border-indigo-800 transform transition-all bg-opacity-90 bg-gradient-to-tr from-blue-200 via-yellow-300 to-red-300 hover:animate-gradient-xy'>
+        <div className='w-full h-full p-3 bg-white' style={{borderRadius: '5px'}}>
+          <img className='flex-shrink-0 object-cover w-full h-64' src={order.serviceImageURL} alt={order.serviceTitle} />
+          <h3 className="py-2 text-2xl font-semibold text-center text-gray-800">{order.serviceTitle}</h3>
+          <span className={`absolute origin-left font-bold hover:bg-opacity-80 text-white text-lg transform transition hover:scale-105 px-5 py-2 bg-opacity-50 uppercase rounded-xl top-10 border-2 border-gray-200 -left-3 cursor-default ${statusStyle}`}>{order.status}</span>
+          <span className={`absolute origin-left font-bold text-white px-5 py-2 rounded-xl bg-opacity-80 hover:bg-opacity-90 transform hover:scale-105 transition top-24 -left-3 bg-indigo-400 border-2 cursor-default border-gray-200`}>
+            Ordered on 
+            <span className='pl-1 text-lg'>{formatDate(new Date(order.date))}</span> at 
+            <span className='pl-1 text-lg'>{new Date(order.date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</span>
+          </span>
+          <p>
+            {order.serviceDescription}
+          </p>
         </div>
-      </div>
-      <div className='flex flex-col items-center justify-center py-1'>
-        <div className='items-center justify-center grid grid-cols-2 lg:block'>
-          <span className='pr-2 text-right text-gray-500'>Status</span>
-          <h3 className='pl-2 text-xl font-bold text-yellow-500 lg:pl-0'>In Transit</h3>
-        </div>
-      </div>
-      <div className='flex flex-col items-center justify-center py-1'>
-        <div className='items-center justify-center grid grid-cols-2 lg:block'>
-          <span className='pr-2 text-right text-gray-500'>Order Date</span>
-          <h3 className='pl-2 text-xl font-bold text-gray-500 lg:pl-0'>{formatDate(new Date(order.date))}</h3>
-        </div>
-      </div>
-      <div className='flex flex-col items-center justify-center py-1'>
-        <div className='items-center justify-center grid grid-cols-2 lg:block'>
-          <span className='pr-2 text-right text-gray-500'>Delivery Expected By</span>
-          <h3 className='pl-2 text-xl font-bold text-gray-700 lg:pl-0'>{formatDate(getDeliveryDate(new Date(order.date)))}</h3>
-        </div>
-      </div>
+      
     </div>
   );
 }

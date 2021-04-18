@@ -15,7 +15,6 @@ function HomePage() {
     }
     fetchServices();
   }, []);
-  console.log(services);
 
   return (
     <div>

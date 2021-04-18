@@ -1,11 +1,31 @@
 const BASE_API_URL = import.meta.env.VITE_BASE_API_URL;
+import axios from 'axios';
+
+export const pay = (details) => {
+  return axios.post(BASE_API_URL + "/charge", details);
+}
 
 export const get3Services = () => {
   return fetch(BASE_API_URL + `/3-services`).then(res => res.json())
 };
 
-export const getProduct = (id) => {
-  return fetch(BASE_API_URL + `/products/${id}`).then(res => res.json())
+export const getOrdersByEmail = (email) => {
+  return fetch(BASE_API_URL + `/orders?email=${encodeURIComponent(email)}`).then(res => res.json())
+};
+
+export const getAllOrders = () => {
+  return fetch(BASE_API_URL + `/orders`).then(res => res.json())
+};
+
+export const changeOrderStatus = (id, status) => {
+  return fetch(BASE_API_URL + `/orders/${id}?status=${status}`, {
+    method: "PUT",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({})
+  })  
 };
 
 export const checkAdmin = (email) => {

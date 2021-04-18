@@ -1,54 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import {useAuth} from '../../hooks/useAuth';
+import React from 'react';
 import {loadStripe} from '@stripe/stripe-js';
-import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import axios from 'axios';
+import { Elements } from '@stripe/react-stripe-js';
+import CheckoutForm from './CheckoutForm.jsx';
 
 const stripePromise = loadStripe("pk_test_51Ie2CCBegGKHxRdAJ2JrkDSJbX5JDARLqQMi6q8DGH9qy5LQK1H3DECAoFCVZ4c2EmJMrUoi1HnCplWCyVspxvFK00z2wikL8k");
 
-const CheckoutForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement)
-    });
-
-    if (!error) {
-      const {id} = paymentMethod;
-
-      try {
-        const { data } = await axios.post(import.meta.env.VITE_BASE_API_URL + "/charge", {id, amount: 9000});
-        console.log('data from backend: ', data);
-      } catch(error) {
-        console.log(error);
-      }
-    }
-  }
-
+function OrdersSection({order, setTab, tabs}) {
   return (
-    <form onSubmit={handleSubmit}>
-      <p>Price: $90</p>
-      <CardElement />
-      <button type="submit" disabled={!stripe}>
-        Pay
-      </button>
-    </form>
-  )
-}
+    <div className='px-4 pb-4 overflow-auto'>
+      <Elements stripe={stripePromise}>
+        <h1 className='my-3 text-4xl font-bold text-indigo-800'>Order</h1>
+        <CheckoutForm order={order} setTab={setTab} tabs={tabs} />
 
-function OrdersSection({order}) {
-  const auth = useAuth();
-
-  return (
-    <Elements stripe={stripePromise}>
-      <h1 className='my-3 text-4xl font-bold text-indigo-800'>Order</h1>
-      <CheckoutForm />
-
-    </Elements>
+      </Elements>
+    </div>
   )
 }
 
