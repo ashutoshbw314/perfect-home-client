@@ -5,6 +5,7 @@ import AsyncButton from "../shared-components/AsyncButton/AsyncButton";
 import {get3Services, get3RandomReviews} from '../../API/API';
 import ServiceCard from './ServiceCard';
 import ReviewCard from './ReviewCard';
+import FooterSection from './FooterSection';
 
 function HomePage() {
   const history = useHistory();
@@ -41,7 +42,7 @@ function HomePage() {
       { /* Services section */ }
       <div className='flex flex-col items-center justify-center py-16 min-h-screen--44'>
         <h2 className='mb-5 text-3xl font-bold text-center text-gray-700'>Services</h2>
-        <div className='max-w-5xl mx-8 mx-auto mt-9 grid gap-6 lg:grid-cols-2 xl:grid-cols-3'>
+        <div className='max-w-5xl mx-8 mt-9 grid gap-6 lg:grid-cols-2 xl:grid-cols-3'>
         {
           services && services.map(service => {
             return <ServiceCard key={service._id} data={service} />
@@ -57,9 +58,9 @@ function HomePage() {
       </div>
 
       { /* Testimonials section */ }
-      <div className='flex flex-col items-center justify-center py-16 bg-white min-h-screen--44'>
+      <div className='flex flex-col items-center justify-center px-5 py-16 bg-white min-h-screen--44'>
         <h2 className='my-3 text-3xl font-bold text-center text-gray-700'>Testimonials</h2>
-        <div className='max-w-5xl mx-8 mx-auto mt-9 grid gap-6 lg:grid-cols-2 xl:grid-cols-3'>
+        <div className='w-full max-w-5xl mx-auto mt-9 grid gap-6 lg:grid-cols-2 xl:grid-cols-3'>
         {
           reviews && reviews.map(review => {
             return <ReviewCard key={review._id} data={review} />
@@ -67,6 +68,10 @@ function HomePage() {
         }
         </div>
       </div>
+
+      { /* Testimonials section */ }
+      <FooterSection />
+      
     </div>
   );
 }
