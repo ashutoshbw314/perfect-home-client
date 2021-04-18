@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import NavBar from '../shared-components/NavBar/NavBar';
 import  {useAuth} from '../../hooks/useAuth';
-import AddService from './AddService';
+import AddServiceSection from './AddServiceSection';
+import AddAdminSection from './AddAdminSection';
 import OrdersListSection from './OrdersListSection';
 
 function AdminPage() {
@@ -47,8 +48,8 @@ function AdminPage() {
         </div>
         <div className='w-full px-3 lg:col-span-9'>
           { tab == tabs[0] && <OrdersListSection /> }
-          { tab == tabs[1] && <AddService />}
-          { tab == tabs[2] && <h1>This is Make admin</h1> }
+          { tab == tabs[1] && <AddServiceSection />}
+          { tab == tabs[2] && <AddAdminSection /> }
           { tab == tabs[3] && <h1>Mangage Services</h1> }
         </div>
       </div>

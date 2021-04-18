@@ -36,6 +36,17 @@ export const checkAdmin = (email) => {
   return fetch(BASE_API_URL + `/isAdmin?email=${encodeURIComponent(email)}`).then(res => res.json())
 };
 
+export const addAdmin = (email) => {
+  return fetch(BASE_API_URL + '/admin', {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({email})
+  })  
+};
+
 export const addService = (serviceData) => {
   return fetch(BASE_API_URL + '/service', {
     method: "POST",

@@ -49,20 +49,20 @@ function AddService() {
         data.imgURL = response.data.data.display_url;
         data.uid = auth.user.uid;
         addService(data).then(res => {
-          toast.info("Service saved successfully!", {
+          toast.success("Service saved successfully!", {
             position: "bottom-left",
-            autoClose: false,
-            hideProgressBar: true,
+            autoClose: 5000,
+            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
           });
         }).catch(err => {
-          toast.error(err.message, {
+          toast.error(error.message, {
             position: "bottom-left",
-            autoClose: false,
-            hideProgressBar: true,
+            autoClose: 5000,
+            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
@@ -92,7 +92,7 @@ function AddService() {
         className='space-y-3'
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className='p-5 rounded-lg shadow-md bg-card space-y-3 lg:space-y-0'>
+        <div className='p-5 bg-white rounded-lg shadow-md bg-card space-y-3 lg:space-y-0'>
           <div className='space-y-3 lg:space-y-0 lg:mb-4 lg:grid lg:grid-cols-2 lg:gap-4'>
             <label className='block'>
               <span className='font-bold text-gray-800 text-md'>Service Title</span>

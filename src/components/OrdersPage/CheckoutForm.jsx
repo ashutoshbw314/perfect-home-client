@@ -100,7 +100,7 @@ const CheckoutForm = ({order, setTab, tabs}) => {
 
   return (
     order ?
-    <form onSubmit={handleSubmit}>
+      <form className='p-3 bg-white rounded-lg shadow-md' onSubmit={handleSubmit}>
       <ToastContainer
         position="bottom-left"
         autoClose={false}
