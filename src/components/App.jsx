@@ -8,6 +8,7 @@ import AdminPage from './AdminPage/AdminPage';
 import OrdersPage from './OrdersPage/OrdersPage';
 import SignInPage from './SignInPage/SignInPage';
 import SignUpPage from './SignUpPage/SignUpPage';
+import ServicesPage from './ServicesPage/ServicesPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={HomePage} />
+          <Route exact path='/services' component={ServicesPage} />
           <ReversedPrivateRoute exact path='/login'>
             <SignInPage /> 
           </ReversedPrivateRoute>

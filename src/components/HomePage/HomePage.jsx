@@ -6,6 +6,8 @@ import {get3Services, get3RandomReviews} from '../../API/API';
 import ServiceCard from './ServiceCard';
 import ReviewCard from './ReviewCard';
 import FooterSection from './FooterSection';
+import ShopSection from './ShopSection';
+import CareerSection from './CareerSection';
 
 function HomePage() {
   const history = useHistory();
@@ -69,7 +71,13 @@ function HomePage() {
         </div>
       </div>
 
-      { /* Testimonials section */ }
+      { /* Shop section section */ }
+      <ShopSection />
+
+      { /* Career section */ }
+      <CareerSection />
+
+      { /* Footer section */ }
       <FooterSection />
       
     </div>

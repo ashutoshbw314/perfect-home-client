@@ -38,6 +38,7 @@ function NavBar({wide}) {
           <nav>
             <ul className='items-center justify-between text-base text-gray-800 lg:flex lg:pt-0'>
               <li><Link className='block px-0 py-3 border-b-2 border-transparent lg:border-b-4 lg:px-4 lg:py-2 hover:border-indigo-600' to='/'>Home</Link></li>
+              <li><Link className='block px-0 py-3 border-b-2 border-transparent lg:border-b-4 lg:px-4 lg:py-2 hover:border-indigo-600' to='/services'>Services</Link></li>
               {
                 auth?.user?.isAdmin && <li><Link className='block px-0 py-3 border-b-2 border-transparent lg:border-b-4 lg:px-4 lg:py-2 hover:border-pink-600' to='/admin'>Admin</Link></li>
               }
