@@ -4,6 +4,6 @@
 ## Client side features
 * Each page is responsive.
 * Buttons that perform async actions are disabled while the action is running.
-* As extra home feature I added Shop or career related to section.
+* As extra home feature I added shop or career related section.
 
-Click [here](https://github.com/Porgramming-Hero-web-course/complete-website-server-ashutoshbw314) to see the server side code of this project.
+Click [here](https://github.com/ashutoshbw314/perfect-home-server) to see the server side code of this project.
